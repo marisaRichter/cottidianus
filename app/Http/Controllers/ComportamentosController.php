@@ -22,6 +22,23 @@ class ComportamentosController extends Controller
     	$comportamento = $request->all();
 		Comportamentos::create($comportamento);
 
-		return redirect('comportamentos');
+		return redirect()->route('comportamentos');
+    }
+
+    public function delete($id) {
+    	Comportamentos::find($id)->delete();
+    	
+    	return redirect()->route('comportamentos');
+    }
+
+    public function edit($id) {
+    	$comportamento = Comportamentos::find($id);
+    	return view('comportamentos.edit', compact('comportamento'));
+    }
+
+    public function update(ComportamentosRequest $request, $id) {
+    	$comportamento = Comportamentos::find($id)->update($request->all());
+    	
+    	return redirect()->route('comportamentos');
     }
 }

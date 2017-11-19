@@ -15,7 +15,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('comportamentos','ComportamentosController@index');
-Route::get('comportamentos/create', 'ComportamentosController@create');
-Route::post('store', 'ComportamentosController@store');
+Route::group(['prefix' => 'comportamentos', 'where'=>['id'=>'[0-9]+']], function() {
+	Route::get('', ['as' => 'comportamentos', 'uses'=>'ComportamentosController@index']);
+	Route::get('create', ['as' => 'comportamentos.create', 'uses'=>'ComportamentosController@create']);
+	Route::get('{id}/delete', ['as' => 'comportamentos.delete', 'uses'=>'ComportamentosController@delete']);
+	Route::get('{id}/edit', ['as' => 'comportamentos.edit', 'uses'=>'ComportamentosController@edit']);
+	Route::put('{id}/update', ['as' => 'comportamentos.update', 'uses'=>'ComportamentosController@update']);
+	Route::post('store', ['as' => 'comportamentos.store', 'uses'=>'ComportamentosController@store']);
+});
 

@@ -9,7 +9,7 @@
 @endif
 
 
-{!! Form::open(['url' => 'store']) !!}
+{!! Form::open(['route' => 'comportamentos.store']) !!}
 <div class="form-group">
 {!! Form::label('nome', 'Nome:') !!}
 {!! Form::text('nome', null) !!}
