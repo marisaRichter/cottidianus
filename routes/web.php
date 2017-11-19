@@ -16,5 +16,6 @@ Route::get('/', function () {
 });
 
 Route::get('comportamentos','ComportamentosController@index');
-
+Route::get('comportamentos/create', 'ComportamentosController@create');
+Route::post('store', 'ComportamentosController@store');
 
