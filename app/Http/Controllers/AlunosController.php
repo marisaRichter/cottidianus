@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Alunos;
-use App\Http\Requests\AlunoRequest;
+use App\Http\Requests\AlunosRequest;
 
 class AlunosController extends Controller
 {
@@ -17,7 +17,7 @@ class AlunosController extends Controller
     return view('alunos.create');
   }
 
-  public function store (AlunoRequest $request) {
+  public function store (AlunosRequest $request) {
     $aluno = $request->all();
     Alunos::create($aluno);
 
@@ -35,7 +35,7 @@ class AlunosController extends Controller
     return view('alunos.edit', compact('aluno'));
   }
 
-  public function update(AlunoRequest $request, $id) {
+  public function update(AlunosRequest $request, $id) {
     $aluno = Alunos::find($id)->update($request->all());
 
     return redirect()->route('alunos');
