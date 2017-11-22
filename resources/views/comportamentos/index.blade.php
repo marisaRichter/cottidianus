@@ -1,4 +1,6 @@
-<html>
+@extends ('app')
+
+@section('content')
 	<head>
 		<title>Comportamentos</title>
 	</head>
@@ -17,4 +19,4 @@
 			@endforeach
 		</table>
 	</body>
-</html>
+@endsection
