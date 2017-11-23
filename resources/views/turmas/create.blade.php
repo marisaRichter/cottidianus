@@ -22,6 +22,10 @@
         {!! Form::text('descricao', null, ['class'=>'form-control']) !!}
       </div>
       <div class="form-group">
+        {!! Form::label('alunos', 'Alunos:') !!}
+        {!! Form::select('alunos_turmas', $alunos, ['multiple' => true]) !!}
+      </div>
+      <div class="form-group">
         {!! Form::submit('Criar Turma', ['class'=>'btn btn-primary']) !!}
       </div>
     {!! Form::close() !!}

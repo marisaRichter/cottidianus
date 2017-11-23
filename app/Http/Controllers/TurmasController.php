@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Turmas;
+use App\Alunos;
 use App\Http\Requests\TurmasRequest;
+use Illuminate\Support\Facades\View;
 
 class TurmasController extends Controller
 {
@@ -19,7 +21,8 @@ class TurmasController extends Controller
   }
 
   public function create() {
-    return view('turmas.create');
+    $alunos = Alunos::pluck('nome', 'id')->all();
+    return view('turmas.create')->with('alunos', $alunos);
   }
 
   public function store (TurmasRequest $request) {
@@ -28,6 +31,9 @@ class TurmasController extends Controller
     $turma->descricao = $request->get('descricao');
     $turma->user_id=1;
     $turma->save();
+    // Adicionando alunos na turma
+    $turma->alunos()->attach($request->get('alunos_turmas'));
+    
 
     return redirect()->route('turmas');
   }
