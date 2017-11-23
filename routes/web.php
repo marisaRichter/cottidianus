@@ -40,6 +40,7 @@ Route::group(['prefix' => 'turmas', 'where'=>['id'=>'[0-9]+']], function() {
 	Route::get('{id}/edit', ['as' => 'turmas.edit', 'uses'=>'TurmasController@edit']);
 	Route::put('{id}/update', ['as' => 'turmas.update', 'uses'=>'TurmasController@update']);
 	Route::post('store', ['as' => 'turmas.store', 'uses'=>'TurmasController@store']);
+	Route::get('{id}/view', ['as'=>'turmas.view', 'uses'=>'TurmasController@view']);
 });
 
 Route::group(['prefix' => 'diarios', 'where'=>['id'=>'[0-9]+']], function() {

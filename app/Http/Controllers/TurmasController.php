@@ -13,6 +13,11 @@ class TurmasController extends Controller
     return view('turmas.index', ['turmas' => $turmas]);
   }
 
+  public function view($id){
+    $turma = Turmas::find($id);
+    return view('turmas.view', ['turma' => $turma]);
+  }
+
   public function create() {
     return view('turmas.create');
   }
