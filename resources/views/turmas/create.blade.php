@@ -23,7 +23,7 @@
       </div>
       <div class="form-group">
         {!! Form::label('alunos', 'Alunos:') !!}
-        {!! Form::select('alunos_turmas[]', $alunos, null, ['multiple' => true, 'class'=>'selectpicker']) !!}
+        {!! Form::select('alunos_turmas[]', $alunos, null, ['class'=>'selectpicker', 'multiple' => true]) !!}
       </div>
       <div class="form-group">
         {!! Form::submit('Criar Turma', ['class'=>'btn btn-primary']) !!}
