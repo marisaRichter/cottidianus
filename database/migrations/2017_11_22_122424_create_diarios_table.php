@@ -15,13 +15,15 @@ class CreateDiariosTable extends Migration
     {
         Schema::create('diarios', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('aluno_turma_id')->unsigned();
-            $table->text('descricao');
+            $table->integer('turma_id')->unsigned();
+            $table->integer('aluno_id')->unsigned();
             $table->integer('comportamento_id')->unsigned();
+            $table->text('descricao');
             $table->date('data');
-            $table->foreign('aluno_turma_id')->references('id')->on('alunos_turmas');
+            $table->foreign('turma_id')->references('id')->on('turmas');
+            $table->foreign('aluno_id')->references('id')->on('alunos');
             $table->foreign('comportamento_id')->references('id')->on('comportamentos');
-            $table->index('aluno_turma_id');
+            $table->index('turma_id');
             $table->timestamps();
         });
     }
