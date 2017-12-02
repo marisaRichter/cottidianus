@@ -13,19 +13,19 @@
 
 
     <!-- Bootstrap core CSS     -->
-    <link href="../css/bootstrap.min.css" rel="stylesheet" />
+    <link href="{{ asset('/css/bootstrap.min.css') }}" rel="stylesheet" />
 
     <!-- Animation library for notifications   -->
-    <link href="../css/animate.min.css" rel="stylesheet"/>
+    <link href="{{ asset('/css/animate.min.css') }}" rel="stylesheet"/>
 
     <!-- Default CSS of application -->
-    <link href="../css/default.css" rel="stylesheet"/>
+    <link href="{{ asset('/css/default.css') }}" rel="stylesheet"/>
 
     <!--  Paper Dashboard core CSS    -->
-    <link href="../css/paper-dashboard.css" rel="stylesheet"/>
+    <link href="{{ asset('/css/paper-dashboard.css') }}" rel="stylesheet"/>
 
 		<!--  CSS emojis    -->
-    <link href="../css/iconselect.css" rel="stylesheet"/>
+    <link href="{{ asset('/css/iconselect.css') }}" rel="stylesheet"/>
 
 
 
@@ -33,7 +33,7 @@
     <!--  Fonts and icons     -->
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Muli:400,300' rel='stylesheet' type='text/css'>
-    <link href="../css/themify-icons.css" rel="stylesheet">
+    <link href="{{ asset('/css/themify-icons.css') }}" rel="stylesheet">
 
 </head>
 <body>
@@ -102,25 +102,25 @@
 </body>
 
     <!--   Core JS Files   -->
-    <script src="../js/jquery-1.10.2.js" type="text/javascript"></script>
-	<script src="../js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="{{ asset('/js/jquery-1.10.2.js') }}" type="text/javascript"></script>
+	<script src="{{ asset('/js/bootstrap.min.js') }}" type="text/javascript"></script>
 
 	<!--  Checkbox, Radio & Switch Plugins -->
-	<script src="../js/bootstrap-checkbox-radio.js"></script>
+	<script src="{{ asset('/js/bootstrap-checkbox-radio.js') }}"></script>
 
 	<!--  Charts Plugin -->
-	<script src="../js/chartist.min.js"></script>
+	<script src="{{ asset('/js/chartist.min.js') }}"></script>
 
     <!--  Notifications Plugin    -->
-    <script src="../js/bootstrap-notify.js"></script>
+    <script src="{{ asset('/js/bootstrap-notify.js') }}"></script>
 
     <!-- Paper Dashboard Core javascript and methods for Demo purpose -->
-	<script src="../js/paper-dashboard.js"></script>
+	<script src="{{ asset('/js/paper-dashboard.js') }}"></script>
 
 	<!--  JS emojis    -->
-	<script src="../js/iconselect.js"></script>
+	<script src="{{ asset('/js/iconselect.js') }}"></script>
 
 	<!--  custom    -->
-	<script src="../js/custom.js"></script>
+	<script src="{{ asset('/js/custom.js') }}"></script>
 
 </html>

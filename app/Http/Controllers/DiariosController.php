@@ -10,9 +10,12 @@ use App\Http\Requests\DiariosRequest;
 
 class DiariosController extends Controller
 {
-  public function index($turmaID) {
-    $diarios = Diarios::all();
-    return view('diarios.index', ['diarios' => $diarios]);
+  public function view($alunoID, $turmaID) {
+    $diarios = Diarios::where([
+      ['aluno_id', '=', $alunoID],
+      ['turma_id', '=', $turmaID]
+    ])->get();
+    return view('diarios.view')->with('diarios', $diarios);
   }
 
   public function create($turmaID) {

@@ -48,6 +48,7 @@ Route::group(['prefix' => 'diarios', 'where'=>['id'=>'[0-9]+']], function() {
 	Route::get('{turmaID}/create', ['as' => 'diarios.create', 'uses'=>'DiariosController@create']);
 	Route::get('{id}/delete', ['as' => 'diarios.delete', 'uses'=>'DiariosController@delete']);
 	Route::get('{id}/edit', ['as' => 'diarios.edit', 'uses'=>'DiariosController@edit']);
+	Route::get('{alunoID}/{turmaID}/view', ['as' => 'diarios.view', 'uses'=>'DiariosController@view']);
 	Route::put('{id}/update', ['as' => 'diarios.update', 'uses'=>'DiariosController@update']);
 	Route::post('{turmaID}/store', ['as' => 'diarios.store', 'uses'=>'DiariosController@store']);
 });
