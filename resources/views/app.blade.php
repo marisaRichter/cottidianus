@@ -57,32 +57,29 @@
                     </a>
                 </li>
                 <li>
-                    <a href="user.html">
+                    <a href="{{ url('/users') }}">
                         <i class="ti-user"></i>
                         <p>Conta</p>
                     </a>
                 </li>
                 <li>
-                    <a href="table.html">
+                    <a href="{{ url('/turmas') }}">
                         <i class="ti-view-list-alt"></i>
                         <p>Turma</p>
                     </a>
                 </li>
                 <li>
-                    <a href="typography.html">
+                    <a href="{{ url('/comportamentos') }}">
                         <i class="ti-text"></i>
                         <p>Comportamentos</p>
                     </a>
                 </li>
                 <li>
-                    <a href="icons.html">
+                    <a href="{{ url('/alunos') }}">
                         <i class="ti-pencil-alt2"></i>
                         <p>Estudantes</p>
                     </a>
                 </li>
-                <li></li>
-                <li></li>
-                <li></li>
                 <li>
                     <a href="logout">
                         <p>Log out</p>
@@ -94,34 +91,6 @@
 
     <div class="main-panel">
         @yield('content')
-
-        <footer class="footer">
-            <div class="container-fluid">
-                <nav class="pull-left">
-                    <ul>
-
-                        <li>
-                            <a href="http://www.creative-tim.com">
-                                Creative Tim
-                            </a>
-                        </li>
-                        <li>
-                            <a href="http://blog.creative-tim.com">
-                               Blog
-                            </a>
-                        </li>
-                        <li>
-                            <a href="http://www.creative-tim.com/license">
-                                Licenses
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
-                <div class="copyright pull-right">
-                    &copy; <script>document.write(new Date().getFullYear())</script>, made with <i class="fa fa-heart heart"></i> by <a href="http://www.creative-tim.com">Creative Tim</a>
-                </div>
-            </div>
-        </footer>
 
     </div>
 </div>

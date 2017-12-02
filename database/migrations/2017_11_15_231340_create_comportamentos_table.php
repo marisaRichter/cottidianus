@@ -16,7 +16,8 @@ class CreateComportamentosTable extends Migration
         Schema::create('comportamentos', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nome', 250);
-            $table->string('emoji', 250);
+            $table->integer('emoji_id');
+            $table->foreign('emoji_id')->references('id')->on('emojis');
             $table->timestamps();
         });
     }
