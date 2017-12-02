@@ -1,3 +1,18 @@
 table tr td.td-right, table th.th-right{
     width: 20%;
 }
+
+table tr td.td-date, table th.th-date{
+    width: 15%;
+}
+
+.left{
+    float: left;
+    width: 60%;
+}
+
+.right{
+    float:right;
+    width: 40%;
+    text-align: right;
+}

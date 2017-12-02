@@ -54,7 +54,7 @@
 
             <ul class="nav">
                 <li class="active">
-                    <a href="dashboard.html">
+                    <a href="{{ url('/') }}">
                         <i class="ti-panel"></i>
                         <p>Dashboard</p>
                     </a>

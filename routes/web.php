@@ -11,9 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'AppController@index');
 
 Route::group(['prefix' => 'comportamentos', 'where'=>['id'=>'[0-9]+']], function() {
 	Route::get('', ['as' => 'comportamentos', 'uses'=>'ComportamentosController@index']);
