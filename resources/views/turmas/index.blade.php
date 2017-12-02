@@ -54,8 +54,13 @@
       <div class="col-md-12">
           <div class="card">
               <div class="header">
-                  <h4 class="title">Listar Turmas</h4>
-                  <p class="category">Aqui você encontrará todas as turmas cadastradas</p>
+                    <div class="left">
+                        <h4 class="title">Listar Turmas</h4>
+                        <p class="category">Aqui você encontrará todas as turmas cadastradas</p>
+                    </div>
+                    <div class="right">
+                        <a href="{{ route('turmas.create') }}" class="btn btn-fill btn-success">Nova Turma</a>
+                    </div>
               </div>
               <div class="content table-responsive table-full-width">
                   <table class="table table-striped">

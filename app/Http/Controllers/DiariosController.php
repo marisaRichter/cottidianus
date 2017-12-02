@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Diarios;
 use App\Turmas;
 use App\Comportamentos;
+use App\Alunos;
 use App\Http\Requests\DiariosRequest;
 
 class DiariosController extends Controller
@@ -14,8 +15,12 @@ class DiariosController extends Controller
     $diarios = Diarios::where([
       ['aluno_id', '=', $alunoID],
       ['turma_id', '=', $turmaID]
-    ])->get();
-    return view('diarios.view')->with('diarios', $diarios);
+    ])
+    ->orderBy('data', 'desc')
+    ->get();
+
+    $aluno = Alunos::find($alunoID);
+    return view('diarios.view')->with(['diarios' => $diarios, 'aluno' => $aluno, 'turmaID' => $turmaID]);
   }
 
   public function create($turmaID) {

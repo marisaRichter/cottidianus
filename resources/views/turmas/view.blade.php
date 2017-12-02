@@ -11,6 +11,7 @@
                 <span class="icon-bar bar2"></span>
                 <span class="icon-bar bar3"></span>
             </button>
+            <a href ="{{ route('turmas') }}"class="navbar-brand ti-arrow-left"></a>
             <a class="navbar-brand" href="#">Turmas</a>
         </div>
         <div class="collapse navbar-collapse">
@@ -54,14 +55,14 @@
       <div class="col-md-12">
           <div class="card">
               <div class="header">
-                  <h4 class="title">Listar Turmas</h4>
-                  <p class="category">Aqui você encontrará todas as turmas cadastradas</p>
+                  <h4 class="title">{!! $turma->nome !!}</h4>
+                  <p class="category">Aqui estão listados todos os estudantes de {!! $turma->nome !!}</p>
               </div>
               <div class="content table-responsive table-full-width">
                   <table class="table table-striped">
                       <thead>
                         <th>Nome</th>
-                        <th>Descrição</th>
+                        <th>Data de Aniversário</th>
                         <th class="th-right">Ações</th>
                       </thead>
                       <tbody>
@@ -69,8 +70,10 @@
                         <tr>
                           <td>{{ $aluno->nome}}</td>
                           <td>{{ $aluno->aniversario}}</td>
-                          <td><a href="{{ route('turmas.edit', ['id'=>$turma->id]) }}" class="btn-sm btn-success">Editar</a></td>
-                          <td><a href="{{ route('turmas.delete', ['id'=>$turma->id]) }}" class="btn-sm btn-danger">Remover</a>
+                          <td>
+                            <a href="{{ route('diarios.view', ['turmaID'=>$turma->id, 'alunoID'=>$aluno->id]) }}" class="btn btn-sm btn-success">Diários</a>                            
+                            <a href="{{ route('turmas.edit', ['id'=>$turma->id]) }}" class="btn btn-sm btn-success">Editar</a>
+                            <a href="{{ route('turmas.delete', ['id'=>$turma->id]) }}" class="btn btn-sm btn-danger">Remover</a>
                           </td>
                         </tr>                      
                         @endforeach

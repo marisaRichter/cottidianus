@@ -11,7 +11,8 @@
                 <span class="icon-bar bar2"></span>
                 <span class="icon-bar bar3"></span>
             </button>
-            <a class="navbar-brand" href="#">Turmas</a>
+            <a href ="{{ route('turmas.view', ['id'=>$turmaID]) }}"class="navbar-brand ti-arrow-left"></a>
+            <a class="navbar-brand" href="#">Diários</a>
         </div>
         <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav navbar-right">
@@ -54,26 +55,36 @@
       <div class="col-md-12">
           <div class="card">
               <div class="header">
-                  <h4 class="title">Listar Turmas</h4>
-                  <p class="category">Aqui você encontrará todas as turmas cadastradas</p>
+                <div class="left">
+                    <h4 class="title">Histórico de {!! $aluno->nome !!}</h4>
+                    <p class="category">Diarios para {!! $aluno->nome !!}</p>
+                </div>
+                <div class="right">
+                    <a href="{{ route('diarios.create', ['id'=>$aluno->id]) }}" class="btn btn-fill btn-success">Novo Diário</a>
+                </div>
               </div>
               <div class="content table-responsive table-full-width">
                   <table class="table table-striped">
                       <thead>
-                        <th>Nome</th>
-                        <th>Descrição</th>
+                        <th class="th-date">Data</th>
+                        <th>Anotações</th>
+                        <th></th>
                         <th class="th-right">Ações</th>
                       </thead>
                       <tbody>
                         @foreach ($diarios as $diario)
                         <tr>
+                          <td class="td-date">{{ $diario->data}}</td>
                           <td>{{ $diario->descricao}}</td>
-                          <td>{{ $diario->data}}</td>
-                          <td><a href="{{ route('turmas.edit', ['id'=>$diario->id]) }}" class="btn-sm btn-success">Editar</a></td>
-                          <td><a href="{{ route('turmas.delete', ['id'=>$diario->id]) }}" class="btn-sm btn-danger">Remover</a>
+                          <td>:)</td>
+                          <td><a href="{{ route('turmas.edit', ['id'=>$diario->id]) }}" class="btn btn-sm btn-success">Editar</a>
+                          <a href="{{ route('turmas.delete', ['id'=>$diario->id]) }}" class="btn btn-sm btn-danger">Remover</a>
                           </td>
                         </tr>                      
                         @endforeach
+                        @if(count($diarios) < 1)
+                            <td colspan="4"> {!! $aluno->nome !!} não possui nenhum diário registrado!</td>
+                        @endif
                       </tbody>
                   </table>
               </div>
