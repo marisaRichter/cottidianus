@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Comportamentos;
+use App\Emojis;
 use Illuminate\Http\Request;
 use Illuminate\Support\MessageBag;
 use App\Http\Requests\ComportamentosRequest;
@@ -11,7 +12,8 @@ class ComportamentosController extends Controller
 {
     public function index() {
     	$comportamentos = Comportamentos::all();
-    	return view('comportamentos.index', ['comportamentos' => $comportamentos]);
+      $emojis = Emojis::all();
+    	return view('comportamentos.index', ['comportamentos' => $comportamentos, 'emojis' => $emojis]);
     }
 
     public function create() {
@@ -20,9 +22,8 @@ class ComportamentosController extends Controller
 
     public function store (ComportamentosRequest $request) {
     	$comportamento = $request->all();
-		Comportamentos::create($comportamento);
-
-		return redirect()->route('comportamentos');
+      Comportamentos::create($comportamento);
+      return redirect()->route('comportamentos');
     }
 
     public function delete($id) {

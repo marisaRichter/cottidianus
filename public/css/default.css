@@ -20,3 +20,11 @@ table tr td.td-date, table th.th-date{
 .table-wrapped{
     table-layout: fixed;
 }
+
+.icon-row{
+  margin-left: 0px;
+}
+
+.resize-emoji{
+  width: 10%;
+}
