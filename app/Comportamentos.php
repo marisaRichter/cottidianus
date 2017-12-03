@@ -11,4 +11,8 @@ class Comportamentos extends Model
     public function diarios(){
         return $this->hasMany('App\Diarios');
     }
+
+    public function emojis(){
+      return $this->belongsTo('App\Emojis', 'emoji');
+    }
 }

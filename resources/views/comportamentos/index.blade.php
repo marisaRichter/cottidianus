@@ -68,7 +68,7 @@
                         @foreach ($comportamentos as $comportamento)
                         <tr>
                           <td>{{ $comportamento->nome }}</td>
-                          <td><img class="resize-emoji" src="{!! \App\Emojis::find($comportamento->emoji)->emoji !!}"></td>
+                          <td><img class="resize-emoji" src="{!! $comportamento->emojis->emoji !!}"></td>
                           <td class="td-right"><a href="{{ route('comportamentos.edit', ['id'=>$comportamento->id]) }}" class="btn btn-info btn-sm">Editar</a>
                           <a href="{{ route('comportamentos.delete', ['id'=>$comportamento->id]) }}" class="btn btn-sm btn-danger">Remover</a>
                           </td>

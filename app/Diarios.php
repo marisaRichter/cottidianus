@@ -17,6 +17,6 @@ class Diarios extends Model
     }
 
     public function comportamentos() {
-        return $this->belongsTo('App\Comportamentos');
+        return $this->belongsTo('App\Comportamentos', 'comportamento_id');
     }
 }
