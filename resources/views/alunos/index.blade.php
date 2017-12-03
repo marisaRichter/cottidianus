@@ -70,7 +70,7 @@
                         <th class="th-right">Ações</th>
                       </thead>
                       <tbody>
-                      @foreach ($alunos as $aluno)
+                      @foreach ($alunos->sortBy('nome') as $aluno)
                       <tr>
                         <td>{{ $aluno->nome}}</td>
                         <td>{{ $aluno->aniversario}}</td>
