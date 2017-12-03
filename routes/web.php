@@ -11,8 +11,6 @@
 |
 */
 
-Route::get('/', 'AppController@index');
-
 Route::group(['prefix' => 'comportamentos', 'where'=>['id'=>'[0-9]+']], function() {
 	Route::get('', ['as' => 'comportamentos', 'uses'=>'ComportamentosController@index']);
 	Route::get('create', ['as' => 'comportamentos.create', 'uses'=>'ComportamentosController@create']);
@@ -50,3 +48,7 @@ Route::group(['prefix' => 'diarios', 'where'=>['id'=>'[0-9]+']], function() {
 	Route::put('{id}/update', ['as' => 'diarios.update', 'uses'=>'DiariosController@update']);
 	Route::post('{alunoID}/{turmaID}/store', ['as' => 'diarios.store', 'uses'=>'DiariosController@store']);
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index');
