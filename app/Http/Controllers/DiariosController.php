@@ -41,19 +41,22 @@ class DiariosController extends Controller
   }
 
   public function delete($id) {
-    Diarios::find($id)->delete();
-
-    return redirect()->route('Diarios');
+    $diario = Diarios::find($id);
+    $diario->delete();
+    return redirect()->route('diarios.view', ['alunoID' => $diario->aluno_id, 'turmaID' => $diario->turma_id]);
   }
 
   public function edit($id) {
     $diario = Diarios::find($id);
-    return view('Diarios.edit', compact('diario'));
+    $aluno = Alunos::find($diario->aluno_id);
+    $turma = Turmas::find($diario->turma_id);
+    $comportamentos = Comportamentos::pluck('nome', 'id')->all();
+    return view('Diarios.edit', compact('diario', 'turma', 'aluno', 'comportamentos'));
   }
 
   public function update(DiariosRequest $request, $id) {
-    $diario = Diarios::find($id)->update($request->all());
-
-    return redirect()->route('Diarios');
+    $diario = Diarios::find($id);
+    $diario->update($request->all());
+    return redirect()->route('diarios.view', ['alunoID' => $diario->aluno_id, 'turmaID' => $diario->turma_id]);
   }
 }

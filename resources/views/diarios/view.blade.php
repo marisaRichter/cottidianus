@@ -77,8 +77,8 @@
                           <td class="td-date">{{ $diario->data}}</td>
                           <td style="word-wrap: break-word">{{ $diario->descricao}}</td>
                           <td class="td-date">:)</td>
-                          <td><a href="{{ route('turmas.edit', ['id'=>$diario->id]) }}" class="btn btn-sm btn-success">Editar</a>
-                          <a href="{{ route('turmas.delete', ['id'=>$diario->id]) }}" class="btn btn-sm btn-danger">Remover</a>
+                          <td><a href="{{ route('diarios.edit', ['id'=>$diario->id]) }}" class="btn btn-sm btn-success">Editar</a>
+                          <a href="{{ route('diarios.delete', ['id'=>$diario->id]) }}" class="btn btn-sm btn-danger">Remover</a>
                           </td>
                         </tr>                      
                         @endforeach
