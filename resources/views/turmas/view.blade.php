@@ -55,8 +55,13 @@
       <div class="col-md-12">
           <div class="card">
               <div class="header">
+                <div class="left">
                   <h4 class="title">{!! $turma->nome !!}</h4>
                   <p class="category">Aqui estão listados todos os estudantes de {!! $turma->nome !!}</p>
+                </div>
+                <div class="right">
+                    <a href="{{ route('turmas.edit', ['id'=> $turma->id]) }}" class="btn btn-fill btn-success">Adicionar Estudantes</a>
+                </div>
               </div>
               <div class="content table-responsive table-full-width">
                   <table class="table table-striped">

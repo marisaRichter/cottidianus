@@ -31,3 +31,7 @@ var iconSelect;
             iconSelect.refresh(icons);
 
         };
+
+        $(document).ready(function(){
+            $("#selectize").selectize();
+        });

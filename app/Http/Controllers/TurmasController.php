@@ -25,7 +25,7 @@ class TurmasController extends Controller
     return view('turmas.create')->with('alunos', $alunos);
   }
 
-  public function store (TurmasRequest $request) {
+  public function store(TurmasRequest $request) {
     $turma = new Turmas();
     $turma->nome = $request->get('nome');
     $turma->descricao = $request->get('descricao');
@@ -46,12 +46,20 @@ class TurmasController extends Controller
 
   public function edit($id) {
     $turma = Turmas::find($id);
-    return view('turmas.edit', compact('turma'));
+    $alunos = Alunos::pluck('nome', 'id')->all();
+
+    return view('turmas.edit', compact('turma', 'alunos'));
   }
 
   public function update(TurmasRequest $request, $id) {
-    $turma = Turmas::find($id)->update($request->all());
+    $turma = Turmas::find($id);
+    $turma->nome = $request->get('nome');
+    $turma->descricao = $request->get('descricao');
+    $turma->user_id=1;
+    $turma->update();
+    // Adicionando alunos na turma
+    $turma->alunos()->sync($request->get('alunos_turmas'));
 
-    return redirect()->route('turmas');
+    return redirect()->route('turmas.view', ['id' => $id]);
   }
 }

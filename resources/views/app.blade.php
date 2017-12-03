@@ -27,6 +27,9 @@
 		<!--  CSS emojis    -->
     <link href="{{ asset('/css/iconselect.css') }}" rel="stylesheet"/>
 
+    	<!--  CSS selectize    -->
+        <link href="{{ asset('/css/selectize.css') }}" rel="stylesheet"/>
+
 
 
 
@@ -122,5 +125,8 @@
 
 	<!--  custom    -->
 	<script src="{{ asset('/js/custom.js') }}"></script>
+
+      <!-- js for selectize -->
+  <script src="{{ asset('/js/selectize.min.js') }}"></script>
 
 </html>
