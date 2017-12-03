@@ -52,7 +52,7 @@
       <div class="card">
       <div class="header">
           <h4 class="title">Novo Diário</h4>
-          <p class="category">Crie sua turma e adicione seus estudantes</p>
+          <p class="category">Crie o diário dos seus estudantes</p>
         </div>
 
       @if ($errors->any())
@@ -66,26 +66,26 @@
         {!! Form::open(['route' => ["diarios.store", $aluno->id, $turma->id], 'method'=>'post']) !!}
         <div class="form-group col-md-6">
           {!! Form::label('nome', 'Nome:') !!}
-          {!! Form::text('nome', $aluno->nome, ['class'=>'form-control', 'readonly' => true]) !!}
+          {!! Form::text('nome', $aluno->nome, ['class'=>'form-control border-input', 'readonly' => true]) !!}
         </div>
         <div class="form-group col-md-6">
           {!! Form::label('turma', 'Turma:') !!}
-          {!! Form::text('turma', $turma->nome, ['class'=>'form-control', 'readonly' => true]) !!}
+          {!! Form::text('turma', $turma->nome, ['class'=>'form-control border-input', 'readonly' => true]) !!}
         </div>
         <div class="form-group">
           {!! Form::label('descricao', 'Descrição:') !!}
-          {!! Form::textarea('descricao', null, ['class'=>'form-control']) !!}
+          {!! Form::textarea('descricao', null, ['class'=>'form-control border-input']) !!}
         </div>
         <div class="form-group col-md-6">
           {!! Form::label('data', 'Data:') !!}
-          {!! Form::date('data', null, ['class'=>'form-control']) !!}
+          {!! Form::date('data', null, ['class'=>'form-control border-input']) !!}
         </div>
         <div class="form-group col-md-6">
           {!! Form::label('comportamento', 'Comportamento:') !!}
-          {!! Form::select('comportamento_id', $comportamentos, null, ['id'=>'selectize']) !!}
+          {!! Form::select('comportamento_id', $comportamentos, null, ['id'=>'selectize', 'class'=>'border-input']) !!}
         </div>
           <div class="form-group">
-            {!! Form::submit('Novo Diário', ['class'=>'btn btn-primary']) !!}
+            {!! Form::submit('Novo Diário', ['class'=>'btn btn-info btn-fill btn-wd']) !!}
           </div>
         {!! Form::close() !!}
       </div>

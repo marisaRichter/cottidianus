@@ -63,19 +63,23 @@
         </ul>
       @endif
       <div class="content">
-      {!! Form::open(['route' => 'alunos.store']) !!}
-      <div class="form-group">
-        {!! Form::label('nome', 'Nome:') !!}
-        {!! Form::text('nome', null, ['class'=>'form-control']) !!}
-      </div>
-      <div class="form-group">
-        {!! Form::label('aniversario', 'Data de Nascimento:') !!}
-        {!! Form::date('aniversario', null, ['class'=>'form-control']) !!}
-      </div>
-      <div class="form-group">
-        {!! Form::submit('Novo Estudante', ['class'=>'btn btn-primary']) !!}
-      </div>
-    {!! Form::close() !!}
+        {!! Form::open(['route' => 'alunos.store']) !!}
+        <div class="row">
+          <div class="form-group col-md-6">
+            {!! Form::label('nome', 'Nome:') !!}
+            {!! Form::text('nome', null, ['class'=>'form-control border-input']) !!}
+          </div>
+        </div>
+        <div class="row">
+          <div class="form-group col-md-6">
+            {!! Form::label('aniversario', 'Data de Nascimento:') !!}
+            {!! Form::date('aniversario', null, ['class'=>'form-control border-input']) !!}
+          </div>
+        </div>
+        <div class="form-group">
+          {!! Form::submit('Novo Estudante', ['class'=>'btn btn-info btn-fill btn-wd']) !!}
+        </div>
+        {!! Form::close() !!}
       </div>
     </div>
   </div>

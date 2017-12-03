@@ -55,7 +55,7 @@
         <div class="card">
           <div class="header">
             <h4 class="title">Listar Comportamentos</h4>
-            <p class="category">Aqui você encontrará todas os comportamentos cadastrados</p>
+            <p class="category">Crie comportamentos e adicione em seus diários</p>
           </div>
           <div class="content">
             {!! Form::open(['route' => 'comportamentos.store']) !!}
@@ -72,7 +72,7 @@
               </div>
             </div>
             <div class="form-group">
-              {!! Form::submit('Criar Comportamento', ['class'=>'btn btn-info btn-fill btn-wd bt-save-emoji']) !!}
+              {!! Form::submit('Novo Comportamento', ['class'=>'btn btn-info btn-fill btn-wd bt-save-emoji']) !!}
             </div>
             {!! Form::close() !!}
           </div>
