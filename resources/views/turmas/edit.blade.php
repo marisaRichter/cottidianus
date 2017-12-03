@@ -52,8 +52,8 @@
     <div class="container-fluid">
       <div class="card">
       <div class="header">
-          <h4 class="title">{!! $turma->nome !!}</h4>
-          <p class="category">Edite {!! $turma->nome !!}</p>
+          <h4 class="title">Editar Turma: {!! $turma->nome !!}</h4>
+          <p class="category">Edite dados da turma</p>
         </div>
 
       @if ($errors->any())
@@ -65,21 +65,29 @@
       @endif
       <div class="content">
         {!! Form::open(['route' => ["turmas.update", $turma->id], 'method'=>'put']) !!}
-        <div class="form-group">
-          {!! Form::label('nome', 'Nome:') !!}
-          {!! Form::text('nome', $turma->nome, ['class'=>'form-control']) !!}
-        </div>
-        <div class="form-group">
-          {!! Form::label('descricao', 'Descrição:') !!}
-          {!! Form::text('descricao', $turma->descricao, ['class'=>'form-control']) !!}
-        </div>
-        <div class="form-group">
-          {!! Form::label('alunos', 'Descrição:') !!}
-          {!! Form::select('alunos_turmas[]', $alunos, $turma->alunos->pluck('id'), ['id'=>'selectize', 'multiple' => true]) !!}
-        </div>
-          <div class="form-group">
-            {!! Form::submit('Editar turma', ['class'=>'btn btn-primary']) !!}
+        <div class="row">
+          <div class="form-group col-md-6">
+            {!! Form::label('nome', 'Nome:') !!}
+            {!! Form::text('nome', $turma->nome, ['class'=>'form-control border-input']) !!}
           </div>
+        </div>
+        <div class="row">
+          <div class="form-group col-md-6">
+            {!! Form::label('descricao', 'Descrição:') !!}
+            {!! Form::text('descricao', $turma->descricao, ['class'=>'form-control border-input']) !!}
+          </div>
+        </div>
+        <div class="row">
+          <div class="form-group col-md-6">
+            {!! Form::label('alunos', 'Descrição:') !!}
+            {!! Form::select('alunos_turmas[]', $alunos, $turma->alunos->pluck('id'), ['id'=>'selectize', 'class'=>'border-input', 'multiple' => true]) !!}
+          </div>
+        </div>
+        <div class="row">
+          <div class="form-group col-md-6">
+            {!! Form::submit('Editar Turma', ['class'=>'btn btn-info btn-fill btn-wd']) !!}
+          </div>
+        </div>
         {!! Form::close() !!}
       </div>
     </div>

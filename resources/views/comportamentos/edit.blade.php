@@ -72,7 +72,7 @@
                   </div>
                 </div>
                 <div class="form-group">
-                  {!! Form::submit('Criar Comportamento', ['class'=>'btn btn-info btn-fill btn-wd bt-save-emoji']) !!}
+                  {!! Form::submit('Editar Comportamento', ['class'=>'btn btn-info btn-fill btn-wd bt-save-emoji']) !!}
                 </div>
                 {!! Form::close() !!}
               </div>

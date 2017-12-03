@@ -51,8 +51,8 @@
     <div class="container-fluid">
       <div class="card">
       <div class="header">
-          <h4 class="title">Novo Estudante</h4>
-          <p class="category">Crie sua turma e adicione seus estudantes</p>
+          <h4 class="title">Editar Estudante: {!! $aluno->nome !!}</h4>
+          <p class="category">Edite dados do estudante</p>
         </div>
 
       @if ($errors->any())
@@ -63,19 +63,23 @@
         </ul>
       @endif
       <div class="content">
-      {!! Form::open(['route' => ["alunos.update", $aluno->id], 'method'=>'put']) !!}
-      <div class="form-group">
-        {!! Form::label('nome', 'Nome:') !!}
-        {!! Form::text('nome', $aluno->nome, ['class'=>'form-control']) !!}
-      </div>
-      <div class="form-group">
-        {!! Form::label('aniversario', 'Data de Nascimento:') !!}
-        {!! Form::date('aniversario', $aluno->aniversario, ['class'=>'form-control']) !!}
-      </div>
-        <div class="form-group">
-          {!! Form::submit('Editar aluno', ['class'=>'btn btn-primary']) !!}
+        {!! Form::open(['route' => ["alunos.update", $aluno->id], 'method'=>'put']) !!}
+        <div class="row">
+          <div class="form-group col-md-6">
+            {!! Form::label('nome', 'Nome:') !!}
+            {!! Form::text('nome', $aluno->nome, ['class'=>'form-control border-input']) !!}
+          </div>
         </div>
-      {!! Form::close() !!}
+        <div class="row">
+          <div class="form-group col-md-6">
+            {!! Form::label('aniversario', 'Data de Nascimento:') !!}
+            {!! Form::date('aniversario', $aluno->aniversario, ['class'=>'form-control border-input']) !!}
+          </div>
+        </div>
+        <div class="form-group">
+          {!! Form::submit('Editar Estudante', ['class'=>'btn btn-info btn-fill btn-wd']) !!}
+        </div>
+        {!! Form::close() !!}
       </div>
     </div>
   </div>

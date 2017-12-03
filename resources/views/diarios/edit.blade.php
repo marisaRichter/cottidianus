@@ -51,8 +51,8 @@
     <div class="container-fluid">
       <div class="card">
       <div class="header">
-          <h4 class="title">Novo Diário</h4>
-          <p class="category">Crie sua turma e adicione seus estudantes</p>
+          <h4 class="title">Editar Diário</h4>
+          <p class="category">Edite o diário do(a) estudante {!! $aluno->nome !!}, da data {!! $diario->data !!}</p>
         </div>
 
       @if ($errors->any())
@@ -66,26 +66,26 @@
         {!! Form::open(['route' => ["diarios.update", $diario->id], 'method'=>'put']) !!}
         <div class="form-group col-md-6">
           {!! Form::label('nome', 'Nome:') !!}
-          {!! Form::text('nome', $aluno->nome, ['class'=>'form-control', 'readonly' => true]) !!}
+          {!! Form::text('nome', $aluno->nome, ['class'=>'form-control border-input', 'readonly' => true]) !!}
         </div>
         <div class="form-group col-md-6">
           {!! Form::label('turma', 'Turma:') !!}
-          {!! Form::text('turma', $turma->nome, ['class'=>'form-control', 'readonly' => true]) !!}
+          {!! Form::text('turma', $turma->nome, ['class'=>'form-control border-input', 'readonly' => true]) !!}
         </div>
         <div class="form-group">
           {!! Form::label('descricao', 'Descrição:') !!}
-          {!! Form::textarea('descricao', $diario->descricao, ['class'=>'form-control']) !!}
+          {!! Form::textarea('descricao', $diario->descricao, ['class'=>'form-control border-input']) !!}
         </div>
         <div class="form-group col-md-6">
           {!! Form::label('data', 'Data:') !!}
-          {!! Form::date('data', $diario->data, ['class'=>'form-control']) !!}
+          {!! Form::date('data', $diario->data, ['class'=>'form-control border-input']) !!}
         </div>
         <div class="form-group col-md-6">
           {!! Form::label('comportamento', 'Comportamento:') !!}
-          {!! Form::select('comportamento_id', $comportamentos, $diario->comportamento_id, ['id'=>'selectize']) !!}
+          {!! Form::select('comportamento_id', $comportamentos, $diario->comportamento_id, ['id'=>'selectize', 'class'=>'border-input']) !!}
         </div>
           <div class="form-group">
-            {!! Form::submit('Editar Diário', ['class'=>'btn btn-primary']) !!}
+            {!! Form::submit('Editar Diário', ['class'=>'btn btn-info btn-fill btn-wd']) !!}
           </div>
         {!! Form::close() !!}
       </div>
