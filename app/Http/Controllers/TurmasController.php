@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\View;
 class TurmasController extends Controller
 {
   public function index() {
-    $turmas = Turmas::all();
+    $turmas = Turmas::where(['visible' => true])->get();
     return view('turmas.index', ['turmas' => $turmas]);
   }
 
@@ -39,7 +39,7 @@ class TurmasController extends Controller
   }
 
   public function delete($id) {
-    Turmas::find($id)->delete();
+    Turmas::find($id)->update(['visible' => false]);
 
     return redirect()->route('turmas');
   }

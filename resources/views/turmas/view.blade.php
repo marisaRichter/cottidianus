@@ -73,12 +73,10 @@
                       <tbody>
                         @foreach ($turma->alunos->sortBy('nome') as $aluno)
                         <tr>
-                          <td><a href="{{ route('diarios.view', ['turmaID'=>$turma->id, 'alunoID'=>$aluno->id]) }}">{{ $aluno->nome}}</a></td>
+                          <td>{{ $aluno->nome}}</td>
                           <td>{{ $aluno->aniversario}}</td>
-                          <td>
-                                                        
-                            <a href="{{ route('turmas.edit', ['id'=>$turma->id]) }}" class="btn btn-sm btn-success">Editar</a>
-                            <a href="{{ route('turmas.delete', ['id'=>$turma->id]) }}" class="btn btn-sm btn-danger">Remover</a>
+                          <td>                                                        
+                            <a href="{{ route('diarios.view', ['turmaID'=>$turma->id, 'alunoID'=>$aluno->id]) }}" class="btn btn-sm btn-success">Ver Diários</a>
                           </td>
                         </tr>                      
                         @endforeach

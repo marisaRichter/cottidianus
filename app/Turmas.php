@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Turmas extends Model
 {
-    protected $fillable = ['nome', 'descricao'];
+    protected $fillable = ['nome', 'descricao', 'visible'];
 
     public function user() {
         return $this->belongsTo('App\User');
