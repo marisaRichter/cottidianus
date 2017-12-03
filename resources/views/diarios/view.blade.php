@@ -60,23 +60,23 @@
                     <p class="category">Diarios para {!! $aluno->nome !!}</p>
                 </div>
                 <div class="right">
-                    <a href="{{ route('diarios.create', ['id'=>$aluno->id]) }}" class="btn btn-fill btn-success">Novo Diário</a>
+                    <a href="{{ route('diarios.create', ['alunoID'=>$aluno->id, 'turmaID'=>$turmaID]) }}" class="btn btn-fill btn-success">Novo Diário</a>
                 </div>
               </div>
               <div class="content table-responsive table-full-width">
-                  <table class="table table-striped">
+                  <table class="table table-striped table-wrapped">
                       <thead>
                         <th class="th-date">Data</th>
                         <th>Anotações</th>
-                        <th></th>
+                        <th class="th-date"></th>
                         <th class="th-right">Ações</th>
                       </thead>
                       <tbody>
                         @foreach ($diarios as $diario)
                         <tr>
                           <td class="td-date">{{ $diario->data}}</td>
-                          <td>{{ $diario->descricao}}</td>
-                          <td>:)</td>
+                          <td style="word-wrap: break-word">{{ $diario->descricao}}</td>
+                          <td class="td-date">:)</td>
                           <td><a href="{{ route('turmas.edit', ['id'=>$diario->id]) }}" class="btn btn-sm btn-success">Editar</a>
                           <a href="{{ route('turmas.delete', ['id'=>$diario->id]) }}" class="btn btn-sm btn-danger">Remover</a>
                           </td>

@@ -16,3 +16,7 @@ table tr td.td-date, table th.th-date{
     width: 40%;
     text-align: right;
 }
+
+.table-wrapped{
+    table-layout: fixed;
+}
