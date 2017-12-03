@@ -1,38 +1,95 @@
 @extends('app')
 
 @section('content')
-  <div class="container">
-    <h1>Nova diario</h1>
+<nav class="navbar navbar-default">
+<div class="container-fluid">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar bar1"></span>
+            <span class="icon-bar bar2"></span>
+            <span class="icon-bar bar3"></span>
+        </button>
+        <a href ="{{ route('turmas') }}"class="navbar-brand ti-arrow-left"></a>
+        <a class="navbar-brand" href="#">Diários</a>
+    </div>
+    <div class="collapse navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+            <li>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    <i class="ti-panel"></i>
+    <p>Stats</p>
+                </a>
+            </li>
+            <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <i class="ti-bell"></i>
+                        <p class="notification">5</p>
+      <p>Notifications</p>
+      <b class="caret"></b>
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li><a href="#">Notification 1</a></li>
+                    <li><a href="#">Notification 2</a></li>
+                    <li><a href="#">Notification 3</a></li>
+                    <li><a href="#">Notification 4</a></li>
+                    <li><a href="#">Another notification</a></li>
+                  </ul>
+            </li>
+<li>
+                <a href="#">
+    <i class="ti-settings"></i>
+    <p>Settings</p>
+                </a>
+            </li>
+        </ul>
 
-    @if ($errors->any())
-      <ul class="alert alert-danger">
-        @foreach($errors->all() as $error)
-          <li>{{ $error }}</li>
-        @endforeach
-      </ul>
-    @endif
-    {!! Form::model('diarios',['route' => ['diarios.store', $turmaID]]) !!}
-    <div class="form group">
-        {!! Form::date('data') !!}
+    </div>
+</div>
+</nav>
+  <div class="content">
+    <div class="container-fluid">
+      <div class="card">
+      <div class="header">
+          <h4 class="title">Novo Diário</h4>
+          <p class="category">Crie sua turma e adicione seus estudantes</p>
+        </div>
+
+      @if ($errors->any())
+        <ul class="alert alert-danger">
+          @foreach($errors->all() as $error)
+            <li>{{ $error }}</li>
+          @endforeach
+        </ul>
+      @endif
+      <div class="content">
+        {!! Form::open(['route' => ["diarios.store", $aluno->id, $turma->id], 'method'=>'post']) !!}
+        <div class="form-group col-md-6">
+          {!! Form::label('nome', 'Nome:') !!}
+          {!! Form::text('nome', $aluno->nome, ['class'=>'form-control', 'readonly' => true]) !!}
+        </div>
+        <div class="form-group col-md-6">
+          {!! Form::label('turma', 'Turma:') !!}
+          {!! Form::text('turma', $turma->nome, ['class'=>'form-control', 'readonly' => true]) !!}
+        </div>
+        <div class="form-group">
+          {!! Form::label('descricao', 'Descrição:') !!}
+          {!! Form::textarea('descricao', null, ['class'=>'form-control']) !!}
+        </div>
+        <div class="form-group col-md-6">
+          {!! Form::label('data', 'Data:') !!}
+          {!! Form::date('data', null, ['class'=>'form-control']) !!}
+        </div>
+        <div class="form-group col-md-6">
+          {!! Form::label('comportamento', 'Comportamento:') !!}
+          {!! Form::select('comportamento_id', $comportamentos, null, ['id'=>'selectize']) !!}
+        </div>
+          <div class="form-group">
+            {!! Form::submit('Novo Diário', ['class'=>'btn btn-primary']) !!}
+          </div>
+        {!! Form::close() !!}
       </div>
-    @php
-      foreach($alunos as $aluno) {
-    @endphp
-    {!! Form::hidden('aluno_id[]', $aluno->id)!!}
-    <div class="form-group">
-        {!! Form::label('descricao', $aluno->nome) !!}
-        {!! Form::text('descricao[]', null, ['class'=>'form-control']) !!}
-      </div>
-      <div class="form-group">
-        {!! Form::label('comportamento', 'Comportamento:') !!}
-        {!! Form::select('comportamento[]', $comportamentos, null) !!}
-      </div>
-    @php
-      }
-    @endphp
-    <div class="form-group">
-        {!! Form::submit('Criar Turma', ['class'=>'btn btn-primary']) !!}
-      </div>
-    {!! Form::close() !!}
+    </div>
+  </div>
   </div>
   @endsection

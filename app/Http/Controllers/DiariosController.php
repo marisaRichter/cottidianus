@@ -23,27 +23,21 @@ class DiariosController extends Controller
     return view('diarios.view')->with(['diarios' => $diarios, 'aluno' => $aluno, 'turmaID' => $turmaID]);
   }
 
-  public function create($turmaID) {
-    $alunos = Turmas::find($turmaID)->alunos()->get();
+  public function create($alunoID, $turmaID) {
+    $aluno = Alunos::find($alunoID);
+    $turma = Turmas::find($turmaID);
     $comportamentos = Comportamentos::pluck('nome', 'id')->all();
-    return view('diarios.create')->with(['alunos' => $alunos, 'turmaID' => $turmaID, 'comportamentos' => $comportamentos]);
+    return view('diarios.create')->with(['turma' => $turma, 'comportamentos' => $comportamentos, 'aluno' => $aluno]);
   }
 
-  public function store(DiariosRequest $request, $turmaID) {
-    $max = count($request->get('aluno_id'));
-    $diarios = [];
-    dd($request->all('all'));
-    for($i=0; $i<$max; $i++){
-        $diarios[$i]['turma_id'] = $turmaID;
-        $diarios[$i]['aluno_id'] = $request->get('aluno_id')[$i];
-        $diarios[$i]['comportamento_id'] = $request->get('comportamento')[$i];
-        $diarios[$i]['descricao'] = $request->get('descricao')[$i];
-        $diarios[$i]['data'] = $request->get('data');
-    }
+  public function store(DiariosRequest $request, $alunoID, $turmaID) {
+    $diario = $request->all();
+    $diario['aluno_id'] = $alunoID;
+    $diario['turma_id'] = $turmaID;
 
-    Diarios::saveMany($diarios);
+    Diarios::create($diario);
 
-    return redirect()->route('Diarios');
+    return redirect()->route('diarios.view', ['alunoID' => $alunoID, 'turmaID' => $turmaID]);
   }
 
   public function delete($id) {
