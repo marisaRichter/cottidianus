@@ -7,6 +7,7 @@ use App\Turmas;
 use App\Alunos;
 use App\Http\Requests\TurmasRequest;
 use Illuminate\Support\Facades\View;
+use Illuminate\Support\Facades\Auth;
 
 class TurmasController extends Controller
 {
@@ -16,7 +17,8 @@ class TurmasController extends Controller
   }
   
   public function index() {
-    $turmas = Turmas::where(['visible' => true])->get();
+    $professorID = Auth::id();
+    $turmas = Turmas::where(['visible' => true, 'user_id' => $professorID])->get();
     return view('turmas.index', ['turmas' => $turmas]);
   }
 
@@ -34,7 +36,7 @@ class TurmasController extends Controller
     $turma = new Turmas();
     $turma->nome = $request->get('nome');
     $turma->descricao = $request->get('descricao');
-    $turma->user_id=1;
+    $turma->user_id = Auth::id();
     $turma->save();
     // Adicionando alunos na turma
     $turma->alunos()->attach($request->get('alunos_turmas'));
@@ -60,7 +62,6 @@ class TurmasController extends Controller
     $turma = Turmas::find($id);
     $turma->nome = $request->get('nome');
     $turma->descricao = $request->get('descricao');
-    $turma->user_id=1;
     $turma->update();
     // Adicionando alunos na turma
     $turma->alunos()->sync($request->get('alunos_turmas'));
