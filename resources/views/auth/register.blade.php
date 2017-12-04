@@ -1,77 +1,119 @@
-@extends('layouts.app')
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<link rel="apple-touch-icon" sizes="76x76" href="img/apple-icon.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="img/favicon.png">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
-@section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Register</div>
+	<title>Cottidianus - v.0.0.1</title>
 
-                <div class="panel-body">
-                    <form class="form-horizontal" method="POST" action="{{ route('register') }}">
-                        {{ csrf_field() }}
+	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+    <meta name="viewport" content="width=device-width" />
 
-                        <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                            <label for="name" class="col-md-4 control-label">Name</label>
 
-                            <div class="col-md-6">
-                                <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required autofocus>
+    <!-- Bootstrap core CSS     -->
+    <link href="{{ asset('/css/bootstrap.min.css') }}" rel="stylesheet" />
 
-                                @if ($errors->has('name'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('name') }}</strong>
-                                    </span>
-                                @endif
+    <!-- Animation library for notifications   -->
+    <link href="{{ asset('/css/animate.min.css') }}" rel="stylesheet"/>
+
+    <!-- Default CSS of application -->
+    <link href="{{ asset('/css/default.css') }}" rel="stylesheet"/>
+
+    <!--  Paper Dashboard core CSS    -->
+    <link href="{{ asset('/css/paper-dashboard.css') }}" rel="stylesheet"/>
+
+		<!--  CSS emojis    -->
+    <link href="{{ asset('/css/iconselect.css') }}" rel="stylesheet"/>
+
+    	<!--  CSS selectize    -->
+        <link href="{{ asset('/css/selectize.css') }}" rel="stylesheet"/>
+
+
+
+
+    <!--  Fonts and icons     -->
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Muli:400,300' rel='stylesheet' type='text/css'>
+    <link href="{{ asset('/css/themify-icons.css') }}" rel="stylesheet">
+
+</head>
+<body>
+    <div class="wrapper">
+        <div class="sidebar" data-background-color="white" data-active-color="danger">
+            <div class="sidebar-wrapper">
+                <div class="logo">
+                    <a href="#" class="simple-text">
+                        Cottidianus
+                    </a>
+                </div>
+                <ul class="nav nav-login">
+                    <li>
+                        <a href="{{ url('/login') }}">
+                            <i class="ti-lock"></i>
+                            <p>Login</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ url('/register') }}">
+                            <i class="ti-save"></i>
+                            <p>Registre-se</p>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="main-panel">
+            <div class="content">
+                <div class="container-fluid">
+                    <div class="col-lg-4 col-md-5 login-card">
+                        <div class="card">
+                            <div class="content">
+                                {!! Form::open(['url' => 'register']) !!}
+                                {{ csrf_field() }}
+
+                                <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
+                                    {!! Form::label('name', 'Nome:') !!}
+                                    {!! Form::text('name', null, ['class'=>'form-control', 'placeholder' => 'Seu Nome']) !!}
+                                    @if ($errors->has('name'))
+                                        <span class="help-block">
+                                            <strong>{{ $errors->first('name') }}</strong>
+                                        </span>
+                                    @endif
+                                </div>
+                                <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
+                                    {!! Form::label('email', 'Email:') !!}
+                                    {!! Form::email('email', null, ['class'=>'form-control', 'placeholder' => 'nome@email.com']) !!}
+                                    @if ($errors->has('email'))
+                                        <span class="help-block">
+                                            <strong>{{ $errors->first('email') }}</strong>
+                                        </span>
+                                    @endif
+                                </div>
+                                <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
+                                    {!! Form::label('password', 'Senha:') !!}
+                                    {!! Form::password('password', ['class'=>'form-control']) !!}
+                                    @if ($errors->has('password'))
+                                        <span class="help-block">
+                                            <strong>{{ $errors->first('password') }}</strong>
+                                        </span>
+                                    @endif
+                                </div>
+                                <div class="form-group">
+                                    {!! Form::label('password_confirmation', 'Confirmar Senha:') !!}
+                                    {!! Form::password('password_confirmation', ['class'=>'form-control']) !!}
+                                </div>
+                                <div class="form-group">
+                                    {!! Form::submit('Registrar', ['class'=>'btn btn-primary']) !!}
+                                </div>
+                                {!! Form::close() !!}
                             </div>
                         </div>
-
-                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label for="email" class="col-md-4 control-label">E-Mail Address</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required>
-
-                                @if ($errors->has('email'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                            <label for="password" class="col-md-4 control-label">Password</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control" name="password" required>
-
-                                @if ($errors->has('password'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="password-confirm" class="col-md-4 control-label">Confirm Password</label>
-
-                            <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
-                                    Register
-                                </button>
-                            </div>
-                        </div>
-                    </form>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-@endsection
+</body>
+</html>

@@ -52,3 +52,4 @@ Route::group(['prefix' => 'diarios', 'where'=>['id'=>'[0-9]+']], function() {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
+Route::get('/', 'Auth\LoginController@showLoginForm');
