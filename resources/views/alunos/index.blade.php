@@ -73,7 +73,7 @@
                       @foreach ($alunos->sortBy('nome') as $aluno)
                       <tr>
                         <td>{{ $aluno->nome}}</td>
-                        <td>{{ $aluno->aniversario}}</td>
+                        <td>{{ date('d/m/Y', strtotime($aluno->aniversario)) }}</td>
                         <td><a href="{{ route('alunos.edit', ['id'=>$aluno->id]) }}" class="btn btn-sm btn-success">Editar</a>
                         <a href="{{ route('alunos.delete', ['id'=>$aluno->id]) }}" class="btn btn-sm btn-danger">Remover</a>
                         </td>

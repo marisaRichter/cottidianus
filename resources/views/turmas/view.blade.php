@@ -74,7 +74,7 @@
                         @foreach ($turma->alunos->sortBy('nome') as $aluno)
                         <tr>
                           <td>{{ $aluno->nome}}</td>
-                          <td>{{ $aluno->aniversario}}</td>
+                          <td>{{ date('d/m/Y', strtotime($aluno->aniversario))}}</td>
                           <td>                                                        
                             <a href="{{ route('diarios.view', ['turmaID'=>$turma->id, 'alunoID'=>$aluno->id]) }}" class="btn btn-sm btn-success">Ver Diários</a>
                           </td>

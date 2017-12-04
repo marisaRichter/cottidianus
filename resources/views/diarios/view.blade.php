@@ -74,7 +74,7 @@
                       <tbody>
                         @foreach ($diarios as $diario)
                         <tr>
-                          <td class="td-date">{{ $diario->data}}</td>
+                          <td class="td-date">{{ date('d/m/Y', strtotime($diario->data))}}</td>
                           <td style="word-wrap: break-word">{{ $diario->descricao}}</td>
                           <td><img class="resize-emoji" src="../{!! $diario->comportamentos->emojis->emoji !!}"></td>
                           <td><a href="{{ route('diarios.edit', ['id'=>$diario->id]) }}" class="btn btn-sm btn-success">Editar</a>
@@ -82,9 +82,11 @@
                           </td>
                         </tr>
                         @endforeach
+                        <tr>
                         @if(count($diarios) < 1)
                             <td colspan="4"> {!! $aluno->nome !!} não possui nenhum diário registrado!</td>
                         @endif
+                        </tr>
                       </tbody>
                   </table>
               </div>
