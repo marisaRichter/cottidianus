@@ -10,6 +10,11 @@ use Illuminate\Support\Facades\View;
 
 class TurmasController extends Controller
 {
+  public function __construct()
+  {
+      $this->middleware('auth');
+  }
+  
   public function index() {
     $turmas = Turmas::where(['visible' => true])->get();
     return view('turmas.index', ['turmas' => $turmas]);

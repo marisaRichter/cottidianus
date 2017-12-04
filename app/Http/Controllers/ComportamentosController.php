@@ -10,6 +10,11 @@ use App\Http\Requests\ComportamentosRequest;
 
 class ComportamentosController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index() {
     	$comportamentos = Comportamentos::all();
       $emojis = Emojis::all();

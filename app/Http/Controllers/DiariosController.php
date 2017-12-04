@@ -11,6 +11,11 @@ use App\Http\Requests\DiariosRequest;
 
 class DiariosController extends Controller
 {
+  public function __construct()
+  {
+      $this->middleware('auth');
+  }
+  
   public function view($alunoID, $turmaID) {
     $diarios = Diarios::where([
       ['aluno_id', '=', $alunoID],

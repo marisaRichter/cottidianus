@@ -8,6 +8,11 @@ use App\Http\Requests\AlunosRequest;
 
 class AlunosController extends Controller
 {
+  public function __construct()
+  {
+      $this->middleware('auth');
+  }
+  
   public function index() {
     $alunos = Alunos::all();
     return view('alunos.index', ['alunos' => $alunos]);
