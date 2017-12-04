@@ -39,3 +39,12 @@ table tr td.td-date, table th.th-date{
     margin-left:250px;
     margin-top:150px;
 }
+
+#datepicker{
+    background-color: #fff;
+    cursor: auto;
+}
+
+.picker__select--year, .picker__select--month{
+    height: 40px!important;
+}

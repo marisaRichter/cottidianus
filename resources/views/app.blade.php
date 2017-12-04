@@ -131,6 +131,11 @@
 	<!--  JS emojis    -->
 	<script src="{{ asset('/js/iconselect.js') }}"></script>
 
+          <!-- js for datepicker -->
+          <script src="{{ asset('/js/picker.js') }}"></script>
+      <script src="{{ asset('/js/picker.date.js') }}"></script>
+      <script src="{{ asset('/js/pt_BR.js') }}"></script>
+
 	<!--  custom    -->
 	<script src="{{ asset('/js/custom.js') }}"></script>
 

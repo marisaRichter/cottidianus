@@ -1,6 +1,8 @@
 @extends('app')
 
 @section('content')
+<link href="{{ asset('/css/classic.css') }}" rel="stylesheet" />
+<link href="{{ asset('/css/classic.date.css') }}" rel="stylesheet" />
 <nav class="navbar navbar-default">
 <div class="container-fluid">
     <div class="navbar-header">
@@ -69,11 +71,9 @@
             {!! Form::label('nome', 'Nome:') !!}
             {!! Form::text('nome', null, ['class'=>'form-control border-input']) !!}
           </div>
-        </div>
-        <div class="row">
           <div class="form-group col-md-6">
             {!! Form::label('aniversario', 'Data de Nascimento:') !!}
-            {!! Form::date('aniversario', null, ['class'=>'form-control border-input']) !!}
+            {!! Form::text('aniversario', null, ['class'=>'form-control border-input', 'id' => 'datepicker']) !!}
           </div>
         </div>
         <div class="form-group">

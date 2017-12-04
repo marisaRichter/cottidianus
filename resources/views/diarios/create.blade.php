@@ -1,6 +1,9 @@
 @extends('app')
 
 @section('content')
+<!-- Datepicker core CSS     -->
+<link href="{{ asset('/css/classic.css') }}" rel="stylesheet" />
+<link href="{{ asset('/css/classic.date.css') }}" rel="stylesheet" />
 <nav class="navbar navbar-default">
 <div class="container-fluid">
     <div class="navbar-header">
@@ -72,21 +75,21 @@
           {!! Form::label('turma', 'Turma:') !!}
           {!! Form::text('turma', $turma->nome, ['class'=>'form-control border-input', 'readonly' => true]) !!}
         </div>
-        <div class="form-group">
-          {!! Form::label('descricao', 'Descrição:') !!}
-          {!! Form::textarea('descricao', null, ['class'=>'form-control border-input']) !!}
-        </div>
         <div class="form-group col-md-6">
           {!! Form::label('data', 'Data:') !!}
-          {!! Form::date('data', null, ['class'=>'form-control border-input']) !!}
+          {!! Form::text('data', null, ['class'=>'form-control border-input', 'id' => 'datepicker']) !!}
         </div>
         <div class="form-group col-md-6">
           {!! Form::label('comportamento', 'Comportamento:') !!}
           {!! Form::select('comportamento_id', $comportamentos, null, ['id'=>'selectize', 'class'=>'border-input']) !!}
         </div>
-          <div class="form-group">
-            {!! Form::submit('Novo Diário', ['class'=>'btn btn-info btn-fill btn-wd']) !!}
-          </div>
+        <div class="form-group">
+          {!! Form::label('descricao', 'Descrição:') !!}
+          {!! Form::textarea('descricao', null, ['class'=>'form-control border-input']) !!}
+        </div>
+        <div class="form-group">
+          {!! Form::submit('Novo Diário', ['class'=>'btn btn-info btn-fill btn-wd']) !!}
+        </div>
         {!! Form::close() !!}
       </div>
     </div>

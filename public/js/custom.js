@@ -79,4 +79,11 @@ var iconSelect;
               console.log('teste' + value_emoji);
               $('.emoji-input').val(value_emoji);
             });
+
+            $('#datepicker').pickadate({
+              formatSubmit: 'yyyy/mm/dd',
+              hiddenName: true,
+              selectYears: true,
+              selectMonths: true
+            })
         });
