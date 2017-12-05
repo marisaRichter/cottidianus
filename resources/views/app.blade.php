@@ -29,6 +29,9 @@
 
     	<!--  CSS selectize    -->
         <link href="{{ asset('/css/selectize.css') }}" rel="stylesheet"/>
+    <!-- CSS datepicker -->
+    <link href="{{ asset('/css/classic.css') }}" rel="stylesheet" />
+    <link href="{{ asset('/css/classic.date.css') }}" rel="stylesheet" />
 
 
 
@@ -54,40 +57,33 @@
                 <img src="{{ asset('img/cottidianus-logo.png')}}"/>
             </a>
             </div>
-
+            <?php $route = Illuminate\Support\Facades\Route::getCurrentRoute()->uri(); ?>
             <ul class="nav">
-                <li class="active">
+                <li class="{{ ($route == 'home') ? 'active' : ''}}">
                     <a href="{{ url('/') }}">
-                        <i class="ti-panel"></i>
+                        <i class="ti-home"></i>
                         <p>Dashboard</p>
                     </a>
                 </li>
-                <li>
-                    <a href="{{ url('/users') }}">
-                        <i class="ti-user"></i>
-                        <p>Conta</p>
-                    </a>
-                </li>
-                <li>
+                <li class="{{ (strripos($route, 'turmas') !== false || strripos($route, 'diarios') !== false) ? 'active' : ''}}">
                     <a href="{{ url('/turmas') }}">
                         <i class="ti-view-list-alt"></i>
                         <p>Turma</p>
                     </a>
                 </li>
-                <li>
+                <li class="{{ (strripos($route, 'comportamentos') !== false) ? 'active' : ''}}">
                     <a href="{{ url('/comportamentos') }}">
-                        <i class="ti-text"></i>
+                        <i class="ti-comments-smiley"></i>
                         <p>Comportamentos</p>
                     </a>
                 </li>
-                <li>
+                <li class="{{ (strripos($route, 'alunos') !== false) ? 'active' : ''}}">
                     <a href="{{ url('/alunos') }}">
-                        <i class="ti-pencil-alt2"></i>
+                        <i class="ti-user"></i>
                         <p>Estudantes</p>
                     </a>
                 </li>
-                <li>
-                    
+                <li>                    
                     <a href="{{ route('logout') }}"
                         onclick="event.preventDefault();
                                 document.getElementById('logout-form').submit();">
