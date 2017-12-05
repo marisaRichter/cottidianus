@@ -26,13 +26,22 @@ class ComportamentosController extends Controller
     }
 
     public function store (ComportamentosRequest $request) {
-    	$comportamento = $request->all();
-      Comportamentos::create($comportamento);
+      if (Comportamentos::create($request->all())){
+        flash('Comportamento salvo com sucesso!')->success();
+      } else {
+        flash('Desculpe, mas não conseguimos salvar sua requisição!')->error();
+      }
+
       return redirect()->route('comportamentos');
     }
 
+    // rever essa function
     public function delete($id) {
-    	Comportamentos::find($id)->delete();
+      if (Comportamentos::find($id)->delete()){
+        flash('Comportamento removido com sucesso!')->success();
+      } else {
+        flash('Desculpe, mas não conseguimos salvar sua requisição!')->error();
+      }
     	
     	return redirect()->route('comportamentos');
     }
@@ -43,7 +52,11 @@ class ComportamentosController extends Controller
     }
 
     public function update(ComportamentosRequest $request, $id) {
-    	$comportamento = Comportamentos::find($id)->update($request->all());
+      if (Comportamentos::find($id)->update($request->all())){
+        flash('Comportamento salvo com sucesso!')->success();
+      } else {
+        flash('Desculpe, mas não conseguimos salvar sua requisição!')->error();
+      }
     	
     	return redirect()->route('comportamentos');
     }

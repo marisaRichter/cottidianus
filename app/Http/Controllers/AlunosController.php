@@ -23,8 +23,11 @@ class AlunosController extends Controller
   }
 
   public function store (AlunosRequest $request) {
-    $aluno = $request->all();
-    Alunos::create($aluno);
+    if (Alunos::create($request->all())){
+      flash('Estudante salvo com sucesso!')->success();
+    } else {
+      flash('Desculpe, mas não conseguimos salvar sua requisição!')->error();
+    }
 
     return redirect()->route('alunos');
   }
@@ -41,13 +44,21 @@ class AlunosController extends Controller
   }
 
   public function update(AlunosRequest $request, $id) {
-    $aluno = Alunos::find($id)->update($request->all());
+    if (Alunos::find($id)->update($request->all())){
+      flash('Estudante salvo com sucesso!')->success();
+    } else {
+      flash('Desculpe, mas não conseguimos salvar sua requisição!')->error();
+    }
 
     return redirect()->route('alunos');
   }
 
   public function deactivate($id) {
-    $aluno = Alunos::find($id)->update(['ativo' => false]);
+    if (Alunos::find($id)->update(['ativo' => false])){
+      flash('Estudante desativado!')->success();
+    } else {
+      flash('Desculpe, mas não conseguimos salvar sua requisição!')->error();
+    }
 
     return redirect()->route('alunos');
   }

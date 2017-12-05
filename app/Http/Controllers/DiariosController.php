@@ -40,14 +40,22 @@ class DiariosController extends Controller
     $diario['aluno_id'] = $alunoID;
     $diario['turma_id'] = $turmaID;
 
-    Diarios::create($diario);
+    if (Diarios::create($diario)){
+      flash('Diário salvo com sucesso!')->success();
+    } else {
+      flash('Desculpe, mas não conseguimos salvar sua requisição!')->error();
+    }
 
     return redirect()->route('diarios.view', ['alunoID' => $alunoID, 'turmaID' => $turmaID]);
   }
 
   public function delete($id) {
     $diario = Diarios::find($id);
-    $diario->delete();
+    if ($diario->delete()){
+      flash('Diário removido com sucesso!')->success();
+    } else {
+      flash('Desculpe, mas não conseguimos salvar sua requisição!')->error();
+    }
     return redirect()->route('diarios.view', ['alunoID' => $diario->aluno_id, 'turmaID' => $diario->turma_id]);
   }
 
@@ -61,7 +69,11 @@ class DiariosController extends Controller
 
   public function update(DiariosRequest $request, $id) {
     $diario = Diarios::find($id);
-    $diario->update($request->all());
+    if ($diario->update($request->all())){
+      flash('Diário salvo com sucesso!')->success();
+    } else {
+      flash('Desculpe, mas não conseguimos salvar sua requisição!')->error();
+    }
     return redirect()->route('diarios.view', ['alunoID' => $diario->aluno_id, 'turmaID' => $diario->turma_id]);
   }
 }

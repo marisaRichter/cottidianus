@@ -37,16 +37,23 @@ class TurmasController extends Controller
     $turma->nome = $request->get('nome');
     $turma->descricao = $request->get('descricao');
     $turma->user_id = Auth::id();
-    $turma->save();
+    if ($turma->save()){
+      flash('Turma salva com sucesso!')->success();
+    } else {
+      flash('Desculpe, mas não conseguimos salvar sua requisição!')->error();
+    }
     // Adicionando alunos na turma
-    $turma->alunos()->attach($request->get('alunos_turmas'));
-    
+    $turma->alunos()->attach($request->get('alunos_turmas'));    
 
     return redirect()->route('turmas');
   }
 
   public function delete($id) {
-    Turmas::find($id)->update(['visible' => false]);
+    if (Turmas::find($id)->update(['visible' => false])){
+      flash('Turma removida com sucesso!')->success();
+    } else {
+      flash('Desculpe, mas não conseguimos salvar sua requisição!')->error();
+    }
 
     return redirect()->route('turmas');
   }
@@ -62,7 +69,11 @@ class TurmasController extends Controller
     $turma = Turmas::find($id);
     $turma->nome = $request->get('nome');
     $turma->descricao = $request->get('descricao');
-    $turma->update();
+    if ($turma->update()){
+      flash('Turma salva com sucesso!')->success();
+    } else {
+      flash('Desculpe, mas não conseguimos salvar sua requisição!')->error();
+    }
     // Adicionando alunos na turma
     $turma->alunos()->sync($request->get('alunos_turmas'));
 

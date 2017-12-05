@@ -17,6 +17,7 @@
 </nav>
   <div class="content">
     <div class="container-fluid">
+    @include('flash::message')
       <div class="card">
       <div class="header">
           <h4 class="title">Novo Estudante</h4>
