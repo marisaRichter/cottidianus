@@ -48,3 +48,7 @@ table tr td.td-date, table th.th-date{
 .picker__select--year, .picker__select--month{
     height: 40px!important;
 }
+
+table tr.tr-deactive{
+    background-color: #e4e4e4!important;
+}

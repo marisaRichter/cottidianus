@@ -27,6 +27,7 @@ Route::group(['prefix' => 'alunos', 'where'=>['id'=>'[0-9]+']], function() {
 	Route::get('{id}/edit', ['as' => 'alunos.edit', 'uses'=>'AlunosController@edit']);
 	Route::put('{id}/update', ['as' => 'alunos.update', 'uses'=>'AlunosController@update']);
 	Route::post('store', ['as' => 'alunos.store', 'uses'=>'AlunosController@store']);
+	Route::get('{id}/deactivate', ['as' => 'alunos.deactivate', 'uses' => 'AlunosController@deactivate']);
 });
 
 Route::group(['prefix' => 'turmas', 'where'=>['id'=>'[0-9]+']], function() {

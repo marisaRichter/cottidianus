@@ -45,4 +45,10 @@ class AlunosController extends Controller
 
     return redirect()->route('alunos');
   }
+
+  public function deactivate($id) {
+    $aluno = Alunos::find($id)->update(['ativo' => false]);
+
+    return redirect()->route('alunos');
+  }
 }

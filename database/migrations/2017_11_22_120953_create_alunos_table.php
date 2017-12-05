@@ -17,6 +17,7 @@ class CreateAlunosTable extends Migration
             $table->increments('id');
             $table->string('nome', 250);
             $table->date('aniversario');
+            $table->boolean('ativo', true);
             $table->timestamps();
         });
     }

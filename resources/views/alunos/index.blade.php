@@ -71,11 +71,16 @@
                       </thead>
                       <tbody>
                       @foreach ($alunos->sortBy('nome') as $aluno)
-                      <tr>
+                      <tr class="{{($aluno->ativo) ? '' : 'tr-deactive'}}">
                         <td>{{ $aluno->nome}}</td>
                         <td>{{ date('d/m/Y', strtotime($aluno->aniversario)) }}</td>
-                        <td><a href="{{ route('alunos.edit', ['id'=>$aluno->id]) }}" class="btn btn-sm btn-success">Editar</a>
-                        <a href="{{ route('alunos.delete', ['id'=>$aluno->id]) }}" class="btn btn-sm btn-danger">Remover</a>
+                        <td>
+                            @if ($aluno->ativo)
+                            <a href="{{ route('alunos.edit', ['id'=>$aluno->id]) }}" class="btn btn-sm btn-success">Editar</a>
+                            <a href="{{ route('alunos.deactivate', ['id'=>$aluno->id]) }}" class="btn btn-sm btn-danger">Desativar</a>
+                            @else
+                            Estudante desativado
+                            @endif
                         </td>
                       </tr>
                     @endforeach

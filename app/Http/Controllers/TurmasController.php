@@ -28,7 +28,7 @@ class TurmasController extends Controller
   }
 
   public function create() {
-    $alunos = Alunos::pluck('nome', 'id')->all();
+    $alunos = Alunos::where(['ativo' => true])->pluck('nome', 'id')->all();
     return view('turmas.create')->with('alunos', $alunos);
   }
 
@@ -53,7 +53,7 @@ class TurmasController extends Controller
 
   public function edit($id) {
     $turma = Turmas::find($id);
-    $alunos = Alunos::pluck('nome', 'id')->all();
+    $alunos = Alunos::where(['ativo' => true])->pluck('nome', 'id')->all();
 
     return view('turmas.edit', compact('turma', 'alunos'));
   }
