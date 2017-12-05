@@ -50,9 +50,9 @@
 
     	<div class="sidebar-wrapper">
             <div class="logo">
-                <a href="#" class="simple-text">
-                    Cottidianus
-                </a>
+            <a href="{{ url('/home')}}" class="simple-text">
+                <img src="{{ asset('img/cottidianus-logo.png')}}"/>
+            </a>
             </div>
 
             <ul class="nav">

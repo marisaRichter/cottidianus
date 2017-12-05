@@ -44,8 +44,8 @@
         <div class="sidebar" data-background-color="white" data-active-color="danger">
             <div class="sidebar-wrapper">
                 <div class="logo">
-                    <a href="#" class="simple-text">
-                        Cottidianus
+                    <a href="{{ url('/home')}}" class="simple-text">
+                        <img src="{{ asset('img/cottidianus-logo.png')}}"/>
                     </a>
                 </div>
                 <ul class="nav nav-login">
