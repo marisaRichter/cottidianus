@@ -75,7 +75,7 @@
 
                                 <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
                                     {!! Form::label('name', 'Nome:') !!}
-                                    {!! Form::text('name', null, ['class'=>'form-control', 'placeholder' => 'Seu Nome']) !!}
+                                    {!! Form::text('name', null, ['class'=>'form-control border-input', 'placeholder' => 'Seu Nome']) !!}
                                     @if ($errors->has('name'))
                                         <span class="help-block">
                                             <strong>{{ $errors->first('name') }}</strong>
@@ -84,7 +84,7 @@
                                 </div>
                                 <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
                                     {!! Form::label('email', 'Email:') !!}
-                                    {!! Form::email('email', null, ['class'=>'form-control', 'placeholder' => 'nome@email.com']) !!}
+                                    {!! Form::email('email', null, ['class'=>'form-control border-input', 'placeholder' => 'nome@email.com']) !!}
                                     @if ($errors->has('email'))
                                         <span class="help-block">
                                             <strong>{{ $errors->first('email') }}</strong>
@@ -93,7 +93,7 @@
                                 </div>
                                 <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
                                     {!! Form::label('password', 'Senha:') !!}
-                                    {!! Form::password('password', ['class'=>'form-control']) !!}
+                                    {!! Form::password('password', ['class'=>'form-control border-input']) !!}
                                     @if ($errors->has('password'))
                                         <span class="help-block">
                                             <strong>{{ $errors->first('password') }}</strong>
@@ -102,7 +102,7 @@
                                 </div>
                                 <div class="form-group">
                                     {!! Form::label('password_confirmation', 'Confirmar Senha:') !!}
-                                    {!! Form::password('password_confirmation', ['class'=>'form-control']) !!}
+                                    {!! Form::password('password_confirmation', ['class'=>'form-control border-input']) !!}
                                 </div>
                                 <div class="form-group">
                                     {!! Form::submit('Registrar', ['class'=>'btn btn-primary']) !!}

@@ -51,7 +51,7 @@
                         @endforeach
                         <tr>
                         @if(count($turmas) < 1)
-                            <td colspan="4">Você não possui nenhuma turma registrada.</td>
+                            <td colspan="4">Você ainda não possui nenhuma turma registrada.</td>
                         @endif
                         </tr>
                       </tbody>

@@ -1,7 +1,7 @@
 @extends ('app')
 
 @section('content')
-
+<link href="{{ asset('/css/iconselect.css') }}" rel="stylesheet"/>
 <nav class="navbar navbar-default">
   <div class="container-fluid">
     <div class="navbar-header">
@@ -51,3 +51,4 @@
     </div>
   </div>
   @endsection
+  <script src="{{ asset('/js/emojis.js') }}"></script>

@@ -40,7 +40,7 @@
                         <th class="th-right">Ações</th>
                       </thead>
                       <tbody>
-                        @foreach ($comportamentos as $comportamento)
+                        @foreach ($comportamentos->sortBy('id') as $comportamento)
                         <tr>
                           <td>{{ $comportamento->id }}</td>
                           <td>{{ $comportamento->nome }}</td>

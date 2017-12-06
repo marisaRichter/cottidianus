@@ -27,8 +27,8 @@
 		<!--  CSS emojis    -->
     <link href="{{ asset('/css/iconselect.css') }}" rel="stylesheet"/>
 
-    	<!--  CSS selectize    -->
-        <link href="{{ asset('/css/selectize.css') }}" rel="stylesheet"/>
+    <!--  CSS selectize    -->
+    <link href="{{ asset('/css/selectize.css') }}" rel="stylesheet"/>
     <!-- CSS datepicker -->
     <link href="{{ asset('/css/classic.css') }}" rel="stylesheet" />
     <link href="{{ asset('/css/classic.date.css') }}" rel="stylesheet" />
@@ -57,9 +57,9 @@
                 <img src="{{ asset('img/cottidianus-logo.png')}}"/>
             </a>
             </div>
-            <?php $route = Illuminate\Support\Facades\Route::getCurrentRoute()->uri(); ?>
+            <?php $route = Illuminate\Support\Facades\Route::getCurrentRoute()->uri();?>
             <ul class="nav">
-                <li class="{{ (strripos($route, 'turmas') !== false || strripos($route, 'diarios') !== false) ? 'active' : ''}}">
+                <li class="{{ (strripos($route, 'turmas') !== false || strripos($route, 'diarios') !== false || strripos($route, 'home') !== false) ? 'active' : ''}}">
                     <a href="{{ url('/turmas') }}">
                         <i class="ti-view-list-alt"></i>
                         <p>Turmas</p>
@@ -122,14 +122,14 @@
 	<script src="{{ asset('/js/iconselect.js') }}"></script>
 
           <!-- js for datepicker -->
-          <script src="{{ asset('/js/picker.js') }}"></script>
-      <script src="{{ asset('/js/picker.date.js') }}"></script>
-      <script src="{{ asset('/js/pt_BR.js') }}"></script>
+    <script src="{{ asset('/js/picker.js') }}"></script>
+    <script src="{{ asset('/js/picker.date.js') }}"></script>
+    <script src="{{ asset('/js/pt_BR.js') }}"></script>
 
 	<!--  custom    -->
 	<script src="{{ asset('/js/custom.js') }}"></script>
 
       <!-- js for selectize -->
-  <script src="{{ asset('/js/selectize.min.js') }}"></script>
+    <script src="{{ asset('/js/selectize.min.js') }}"></script>
 
 </html>
