@@ -39,15 +39,13 @@
             {!! Form::label('nome', 'Nome:') !!}
             {!! Form::text('nome', $turma->nome, ['class'=>'form-control border-input']) !!}
           </div>
-        </div>
-        <div class="row">
           <div class="form-group col-md-6">
             {!! Form::label('descricao', 'Descrição:') !!}
             {!! Form::text('descricao', $turma->descricao, ['class'=>'form-control border-input']) !!}
           </div>
         </div>
         <div class="row">
-          <div class="form-group col-md-6">
+          <div class="form-group col-md-12">
             {!! Form::label('alunos', 'Descrição:') !!}
             {!! Form::select('alunos_turmas[]', $alunos, $turma->alunos->pluck('id'), ['id'=>'selectize', 'class'=>'border-input', 'multiple' => true]) !!}
           </div>

@@ -49,6 +49,11 @@
                           </td>
                         </tr>                      
                         @endforeach
+                        @if(count($turma->alunos) < 1)
+                        <tr>
+                            <td colspan="6">Nenhum estudante vinculado a turma {{ $turma->nome }}</td>
+                        </tr>
+                        @endif
                       </tbody>
                   </table>
               </div>
