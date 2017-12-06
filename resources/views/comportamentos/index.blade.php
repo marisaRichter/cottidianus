@@ -34,6 +34,7 @@
               <div class="content table-responsive table-full-width">
                   <table class="table table-striped">
                       <thead>
+                        <th>#</td>
                         <th>Nome</th>
                         <th>Emoji</th>
                         <th class="th-right">Ações</th>
@@ -41,10 +42,11 @@
                       <tbody>
                         @foreach ($comportamentos as $comportamento)
                         <tr>
+                          <td>{{ $comportamento->id }}</td>
                           <td>{{ $comportamento->nome }}</td>
-                          <td><img class="resize-emoji" src="{!! $comportamento->emojis->emoji !!}"></td>
+                          <td class="td-date"><img class="resize-emoji" src="{!! $comportamento->emojis->emoji !!}"></td>
                           <td class="td-right"><a href="{{ route('comportamentos.edit', ['id'=>$comportamento->id]) }}" class="btn btn-info btn-sm">Editar</a>
-                          <a href="{{ route('comportamentos.delete', ['id'=>$comportamento->id]) }}" class="btn btn-sm btn-danger">Remover</a>
+                          <a href="{{ route('comportamentos.delete', ['id'=>$comportamento->id]) }}" class="btn btn-sm btn-danger">Desativar</a>
                           </td>
                         </tr>
                         @endforeach

@@ -75,7 +75,7 @@
 
                                 <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
                                     {!! Form::label('email', 'Email:') !!}
-                                    {!! Form::email('email', null, ['class'=>'form-control', 'placeholder' => 'nome@email.com']) !!}
+                                    {!! Form::email('email', null, ['class'=>'form-control border-input', 'placeholder' => 'nome@email.com']) !!}
                                     @if ($errors->has('email'))
                                         <span class="help-block">
                                             <strong>{{ $errors->first('email') }}</strong>
@@ -84,7 +84,7 @@
                                 </div>
                                 <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
                                     {!! Form::label('password', 'Senha:') !!}
-                                    {!! Form::password('password', ['class'=>'form-control']) !!}
+                                    {!! Form::password('password', ['class'=>'form-control border-input']) !!}
                                     @if ($errors->has('password'))
                                         <span class="help-block">
                                             <strong>{{ $errors->first('password') }}</strong>

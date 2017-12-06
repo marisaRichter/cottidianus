@@ -37,7 +37,7 @@
                       <thead>
                         <th class="th-date">Data</th>
                         <th>Anotações</th>
-                        <th>Comportamento</th>
+                        <th class="th-date"></th>
                         <th class="th-right">Ações</th>
                       </thead>
                       <tbody>
@@ -45,7 +45,7 @@
                         <tr>
                           <td class="td-date">{{ date('d/m/Y', strtotime($diario->data))}}</td>
                           <td style="word-wrap: break-word">{{ $diario->descricao}}</td>
-                          <td><img class="resize-emoji" src="../{!! $diario->comportamentos->emojis->emoji !!}"></td>
+                          <td class="td-date"><img class="resize-emoji" src="../{!! $diario->comportamentos->emojis->emoji !!}"></td>
                           <td><a href="{{ route('diarios.edit', ['id'=>$diario->id]) }}" class="btn btn-sm btn-success">Editar</a>
                           <a href="{{ route('diarios.delete', ['id'=>$diario->id]) }}" class="btn btn-sm btn-danger">Remover</a>
                           </td>

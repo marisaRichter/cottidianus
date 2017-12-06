@@ -59,16 +59,10 @@
             </div>
             <?php $route = Illuminate\Support\Facades\Route::getCurrentRoute()->uri(); ?>
             <ul class="nav">
-                <li class="{{ ($route == 'home') ? 'active' : ''}}">
-                    <a href="{{ url('/') }}">
-                        <i class="ti-home"></i>
-                        <p>Dashboard</p>
-                    </a>
-                </li>
                 <li class="{{ (strripos($route, 'turmas') !== false || strripos($route, 'diarios') !== false) ? 'active' : ''}}">
                     <a href="{{ url('/turmas') }}">
                         <i class="ti-view-list-alt"></i>
-                        <p>Turma</p>
+                        <p>Turmas</p>
                     </a>
                 </li>
                 <li class="{{ (strripos($route, 'comportamentos') !== false) ? 'active' : ''}}">

@@ -41,7 +41,7 @@
                       <tbody>
                         @foreach ($turmas as $turma)
                         <tr>
-                          <td><a href="{{ route('turmas.view', ['id'=>$turma->id]) }}">{{ $turma->nome}}</a></td>
+                          <td>{{ $turma->nome}}</td>
                           <td>{{ $turma->descricao}}</td>
                           <td class="td-right">
                             <a href="{{ route('turmas.view', ['id'=>$turma->id]) }}" class="btn btn-success btn-sm">Visualizar</a>
